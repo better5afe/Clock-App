@@ -1,5 +1,11 @@
 @use './units.scss' as units;
 
+$viewports: (
+	v-mobile: unit.rem(325),
+	v-tablet: unit.rem(768),
+	v-desktop: unit.rem(1110),
+);
+
 $colors: (
 	c-white: #ffff,
 	c-gray: #303030,
@@ -113,4 +119,11 @@ $colors: (
 		0.3125rem
 	);
 	color: map-get($colors, c-gray);
+}
+
+@mixin flexbox($justify-content, $align-items, $direction) {
+	display: flex;
+	justify-content: $justify-content;
+	align-items: $align-items;
+	flex-direction: $direction;
 }
