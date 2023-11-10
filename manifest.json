@@ -1,0 +1,6 @@
+{
+  "short_name": "Clock App",
+  "name": "Clock App",
+  "start_url": ".",
+  "display": "standalone"
+}
