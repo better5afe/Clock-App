@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { ClockDetailsCtx } from '../../context/clock-details-ctx';
 import ClockDetailsBtn from './ClockDetailsBtn';
 import SunIcon from '../../assets/icons/icon-sun.svg';
 import MoonIcon from '../../assets/icons/icon-moon.svg';
@@ -7,13 +9,22 @@ import './Clock.scss';
 // dynamically change img src based on the time
 
 const Clock = () => {
+	const clockCtx = useContext(ClockDetailsCtx);
+
 	let src = SunIcon;
 
 	return (
-		<section className='clock clock--expanded wrapper'>
+		<section
+			className={`clock wrapper ${
+				clockCtx.isExpanded ? 'clock--expanded' : ''
+			}`}
+		>
 			<div className='clock__top'>
 				<img src={src} alt='' aria-hidden='true' className='clock__icon' />
-				<h4 className='clock__greeting'>Good morning<span className='clock__greeting--current'>, it's currently</span></h4>
+				<h4 className='clock__greeting'>
+					Good morning
+					<span className='clock__greeting--current'>, it's currently</span>
+				</h4>
 			</div>
 			<div className='clock__middle'>
 				<h1 className='clock__time'>11:37</h1>

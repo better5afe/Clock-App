@@ -16,7 +16,11 @@
 		margin: 0 0 0 units.rem(15);
 		background: map-get(utils.$colors, c-gray);
 		border-radius: 50%;
-		transition: background-color 0.3s;
+		transition: background-color 0.3s, transform 0.3s;
+
+		&--expanded {
+			transform: rotate(180deg);
+		}
 	}
 
 	&:hover,

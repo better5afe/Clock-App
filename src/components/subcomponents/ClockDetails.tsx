@@ -1,12 +1,18 @@
+import { useContext } from 'react';
+import { ClockDetailsCtx } from '../../context/clock-details-ctx';
 import ClockDetailsCard from './ClockDetailsCard';
 
 import './ClockDetails.scss';
 
-// details--expanded
-
 const ClockDetails = () => {
+	const clockCtx = useContext(ClockDetailsCtx);
+
 	return (
-		<section className='details details--expanded details--daytime'>
+		<section
+			className={`details details--daytime ${
+				clockCtx.isExpanded ? 'details--expanded' : ''
+			}`}
+		>
 			<div className='wrapper details__wrapper'>
 				<div className='details__left'>
 					<ClockDetailsCard title='current timezone' details='Europe/London' />

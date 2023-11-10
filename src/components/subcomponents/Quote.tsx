@@ -1,10 +1,18 @@
+import { useContext } from 'react';
+import { ClockDetailsCtx } from '../../context/clock-details-ctx';
 import RefreshIcon from '../../assets/icons/icon-refresh.svg';
 
 import './Quote.scss';
 
 const Quote = () => {
+	const clockCtx = useContext(ClockDetailsCtx);
+
 	return (
-		<section className='quote quote--expanded wrapper'>
+		<section
+			className={`quote wrapper ${
+				clockCtx.isExpanded ? 'quote--expanded' : ''
+			}`}
+		>
 			<div className='quote__container'>
 				<blockquote className='quote__text'>
 					“The science of operations, as derived from mathematics more

@@ -4,7 +4,7 @@
 .clock {
 	@include utils.flexbox(flex-end, flex-start, column);
 	height: 50%;
-	padding: 0 0 units.rem(40);
+	padding-bottom: units.rem(40);
 	transition: transform 0.8s;
 
 	&--expanded {
