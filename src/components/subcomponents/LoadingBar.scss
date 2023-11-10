@@ -5,6 +5,7 @@
 	position: relative;
 	height: units.rem(16);
 	width: 60vw;
+	max-width: units.rem(540);
 	background: map-get(utils.$colors, c-white-shadow);
 	border-radius: units.rem(10);
 	overflow: hidden;

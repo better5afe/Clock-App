@@ -1,12 +1,18 @@
 import { useContext } from 'react';
 import { ClockDetailsCtx } from '../../context/clock-details-ctx';
+import { ClockDetailsProps } from '../../@types/components/component-types';
 import ClockDetailsCard from './ClockDetailsCard';
 
 import './ClockDetails.scss';
 
-const ClockDetails = () => {
+const ClockDetails: React.FC<ClockDetailsProps> = ({
+	timezone,
+	dayOfWeek,
+	dayOfYear,
+	weekNum,
+}) => {
 	const clockCtx = useContext(ClockDetailsCtx);
-	
+
 	return (
 		<section
 			className={`details details--daytime ${
@@ -15,12 +21,12 @@ const ClockDetails = () => {
 		>
 			<div className='wrapper details__wrapper'>
 				<div className='details__left'>
-					<ClockDetailsCard title='current timezone' details='Europe/London' />
-					<ClockDetailsCard title='Day of the year' details='295' />
+					<ClockDetailsCard title='current timezone' details={timezone} />
+					<ClockDetailsCard title='Day of the year' details={dayOfYear} />
 				</div>
 				<div className='details__right'>
-					<ClockDetailsCard title='Day of the week' details='5' />
-					<ClockDetailsCard title='Week number' details='42' />
+					<ClockDetailsCard title='Day of the week' details={dayOfWeek} />
+					<ClockDetailsCard title='Week number' details={weekNum} />
 				</div>
 			</div>
 		</section>
