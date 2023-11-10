@@ -1,0 +1,116 @@
+@use './units.scss' as units;
+
+$colors: (
+	c-white: #ffff,
+	c-gray: #303030,
+	c-black: #0000,
+	c-white-shadow: rgba(255, 255, 255, 0.75),
+	c-gray-hover: #999999,
+	c-black-shadow: rgba(0, 0, 0, 0.75),
+);
+
+@mixin regular-txt {
+	font-size: units.rem(18);
+	line-height: units.rem(28px);
+	color: map-get($colors, c-white);
+}
+
+@mixin h-one {
+	font-size: 6.25rem;
+	font-size: clamp(
+		6.25rem,
+		3.662420382165605rem + 12.738853503184714vw,
+		12.5rem
+	);
+	font-weight: 700;
+	line-height: 10.9375rem;
+	line-height: clamp(
+		10.9375rem,
+		10.290605095541402rem + 3.1847133757961785vw,
+		12.5rem
+	);
+	color: map-get($colors, c-white);
+}
+
+@mixin h-two {
+	font-size: 1.25rem;
+	font-size: clamp(
+		1.25rem,
+		0.3184713375796179rem + 4.585987261146497vw,
+		3.5rem
+	);
+	font-weight: 700;
+}
+
+@mixin h-three {
+	font-size: 1.125rem;
+	font-size: clamp(
+		1.125rem,
+		0.9697452229299364rem + 0.7643312101910829vw,
+		1.5rem
+	);
+	font-weight: 700;
+	line-height: units.rem(28);
+	letter-spacing: 1.125rem;
+	letter-spacing: clamp(
+		1.125rem,
+		0.9697452229299364rem + 0.7643312101910829vw,
+		1.5rem
+	);
+	color: map-get($colors, c-white);
+}
+
+@mixin h-four {
+	font-size: 1.125rem;
+	font-size: clamp(
+		1.125rem,
+		1.0732484076433122rem + 0.25477707006369427vw,
+		1.25rem
+	);
+	font-weight: 400;
+	line-height: units.rem(28);
+	letter-spacing: 0.225rem;
+	letter-spacing: clamp(
+		0.225rem,
+		0.21464968152866243rem + 0.050955414012738835vw,
+		0.25rem
+	);
+	color: map-get($colors, c-white);
+}
+
+@mixin h-five {
+	font-size: 0.625rem;
+	font-size: clamp(
+		0.625rem,
+		0.49562101910828027rem + 0.6369426751592356vw,
+		0.9375rem
+	);
+	font-weight: 400;
+	line-height: units.rem(28);
+	letter-spacing: 0.125rem;
+	letter-spacing: clamp(
+		0.125rem,
+		0.09912420382165606rem + 0.12738853503184713vw,
+		0.1875rem
+	);
+}
+
+@mixin button-txt {
+	font-size: 0.75rem;
+	font-size: clamp(0.75rem, 0.6464968152866242rem + 0.5095541401273885vw, 1rem);
+	font-weight: 700;
+	text-transform: uppercase;
+	line-height: 0.875rem;
+	line-height: clamp(
+		0.875rem,
+		0.5127388535031847rem + 1.78343949044586vw,
+		1.75rem
+	);
+	letter-spacing: 0.234375rem;
+	letter-spacing: clamp(
+		0.234375rem,
+		0.20203025477707007rem + 0.1592356687898089vw,
+		0.3125rem
+	);
+	color: map-get($colors, c-gray);
+}
