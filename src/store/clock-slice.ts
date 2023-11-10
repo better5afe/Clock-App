@@ -144,18 +144,6 @@ export const fetchHour = () => {
 
 export const fetchTime = () => {
 	return async (dispatch: ThunkDispatch<TimeState, unknown, AnyAction>) => {
-		dispatch(
-			getTimeData({
-				time: '',
-				timezone: '',
-				abbreviation: '',
-				dayOfWeek: 0,
-				dayOfYear: 0,
-				weekNum: 0,
-				isLoading: true,
-				isError: false,
-			})
-		);
 		try {
 			const res = await fetch(`http://worldtimeapi.org/api/ip`);
 
@@ -201,6 +189,7 @@ export const fetchTime = () => {
 					isError: true,
 				})
 			);
+			console.log(err);
 		}
 	};
 };
