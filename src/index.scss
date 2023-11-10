@@ -1,3 +1,6 @@
+@use './assets/scss/utils.scss' as utils;
+@use './assets/scss/units.scss' as units;
+
 *,
 *::before,
 *::after {
@@ -8,4 +11,17 @@
 
 body {
 	font-family: 'Inter', sans-serif;
+}
+
+.wrapper {
+	padding: 0 units.rem(26);
+
+	@media screen and (min-width: map-get(utils.$viewports, v-tablet)) {
+		padding: 0 units.rem(64);
+	}
+
+	@media screen and (min-width: map-get(utils.$viewports, v-desktop)) {
+		max-width: map-get(utils.$viewports, v-desktop);
+		margin: 0 auto;
+	}
 }
