@@ -1,9 +1,9 @@
 @use './units.scss' as units;
 
 $viewports: (
-	v-mobile: unit.rem(325),
-	v-tablet: unit.rem(768),
-	v-desktop: unit.rem(1110),
+	v-mobile: units.rem(325),
+	v-tablet: units.rem(768),
+	v-desktop: units.rem(1110),
 );
 
 $colors: (
@@ -12,7 +12,8 @@ $colors: (
 	c-black: #0000,
 	c-white-shadow: rgba(255, 255, 255, 0.75),
 	c-gray-hover: #999999,
-	c-black-shadow: rgba(0, 0, 0, 0.75),
+	c-black-shadow: #000000bf,
+	c-black-overlay: #0000004d,
 );
 
 @mixin regular-txt {
