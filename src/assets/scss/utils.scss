@@ -35,11 +35,11 @@ $colors: (
 }
 
 @mixin h-one {
-	font-size: 6.25rem;
+	font-size: 4.25rem;
 	font-size: clamp(
-		6.25rem,
-		3.662420382165605rem + 12.738853503184714vw,
-		8.5rem
+		4.25rem,
+		3.662420382165605rem + 10.738853503184714vw,
+		9.5rem
 	);
 	font-weight: 700;
 	line-height: 1;

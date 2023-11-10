@@ -24,6 +24,9 @@ const clockSlice = createSlice({
 			state.isLoading = action.payload.isLoading;
 			state.isError = action.payload.isError;
 		},
+		getHour: (state, action: PayloadAction<{ time: string }>) => {
+			state.time = action.payload.time;
+		},
 		getTimeData: (state, action: PayloadAction<TimeState>) => {
 			state.time = action.payload.time;
 			state.timezone = action.payload.timezone;
@@ -37,7 +40,7 @@ const clockSlice = createSlice({
 	},
 });
 
-export const { getLocationData, getTimeData } = clockSlice.actions;
+export const { getLocationData, getTimeData, getHour } = clockSlice.actions;
 export default clockSlice.reducer;
 
 // export const fetchLocation = () => {
@@ -107,15 +110,58 @@ export default clockSlice.reducer;
 // 	};
 // };
 
-export const fetchTime = () => {
-	return async (dispatch: ThunkDispatch<TimeState, unknown, AnyAction>) => {
+export const fetchHour = () => {
+	return async (
+		dispatch: ThunkDispatch<{ time: string }, unknown, AnyAction>
+	) => {
 		try {
 			const res = await fetch(`http://worldtimeapi.org/api/ip`);
 
 			if (res.ok) {
 				const timeData = await res.json();
 
-				console.log(timeData);
+				dispatch(
+					getHour({
+						time: timeData.datetime,
+					})
+				);
+			} else {
+				dispatch(
+					getHour({
+						time: '',
+					})
+				);
+			}
+		} catch (err) {
+			dispatch(
+				getHour({
+					time: '',
+				})
+			);
+		}
+	};
+};
+
+export const fetchTime = () => {
+	return async (dispatch: ThunkDispatch<TimeState, unknown, AnyAction>) => {
+		dispatch(
+			getTimeData({
+				time: '',
+				timezone: '',
+				abbreviation: '',
+				dayOfWeek: 0,
+				dayOfYear: 0,
+				weekNum: 0,
+				isLoading: true,
+				isError: false,
+			})
+		);
+		try {
+			const res = await fetch(`http://worldtimeapi.org/api/ip`);
+
+			if (res.ok) {
+				const timeData = await res.json();
+
 				dispatch(
 					getTimeData({
 						time: timeData.datetime,
@@ -129,9 +175,32 @@ export const fetchTime = () => {
 					})
 				);
 			} else {
+				dispatch(
+					getTimeData({
+						time: '',
+						timezone: '',
+						abbreviation: '',
+						dayOfWeek: 0,
+						dayOfYear: 0,
+						weekNum: 0,
+						isLoading: false,
+						isError: true,
+					})
+				);
 			}
 		} catch (err) {
-			console.log(err);
+			dispatch(
+				getTimeData({
+					time: '',
+					timezone: '',
+					abbreviation: '',
+					dayOfWeek: 0,
+					dayOfYear: 0,
+					weekNum: 0,
+					isLoading: false,
+					isError: true,
+				})
+			);
 		}
 	};
 };

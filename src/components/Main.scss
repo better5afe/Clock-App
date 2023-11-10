@@ -10,6 +10,7 @@
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
+	overflow: hidden;
 	z-index: 0;
 
 	&--daytime {
@@ -44,7 +45,6 @@
 
 	@media screen and (min-width: map-get(utils.$viewports, v-desktop)) {
 		height: 100vh;
-		overflow: hidden;
 		padding: units.rem(56) 0 0;
 
 		&--daytime {

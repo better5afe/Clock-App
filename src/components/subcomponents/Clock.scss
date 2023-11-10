@@ -38,6 +38,7 @@
 
 	&__timezone {
 		align-self: flex-end;
+		margin-left: units.rem(16);
 		@include utils.timezone-txt;
 	}
 
