@@ -1,3 +1,5 @@
+import './Main.scss';
+
 const Main = () => {
 	return <main></main>;
 };

@@ -1,3 +1,5 @@
+import './ClockDetailsBtn.scss';
+
 const ClockDetailsBtn = () => {
 	return <button></button>;
 };

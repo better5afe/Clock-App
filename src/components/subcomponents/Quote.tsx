@@ -1,5 +1,7 @@
-const Quote = () => {
-    return <></>
-}
+import './Quote.scss';
 
-export default Quote
+const Quote = () => {
+	return <></>;
+};
+
+export default Quote;

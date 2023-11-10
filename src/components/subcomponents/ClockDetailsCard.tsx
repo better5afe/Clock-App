@@ -1,3 +1,5 @@
+import './ClockDetailsCard.scss';
+
 const ClockDetailsCard = () => {
 	return <></>;
 };

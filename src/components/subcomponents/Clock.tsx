@@ -1,3 +1,5 @@
+import './Clock.scss'
+
 const Clock = () => {
 	return <></>;
 };
