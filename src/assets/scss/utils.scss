@@ -13,8 +13,9 @@ $colors: (
 	c-white-shadow: #ffffffbf,
 	c-gray-hover: #999999,
 	c-gray-text: #00000080,
+	c-gray-border: #30303040,
 	c-black-shadow: #000000bf,
-	c-black-overlay: #0000004d,
+	c-black-overlay: #0000006e,
 );
 
 @mixin regular-txt {
@@ -41,12 +42,7 @@ $colors: (
 		12.5rem
 	);
 	font-weight: 700;
-	line-height: 10.9375rem;
-	line-height: clamp(
-		10.9375rem,
-		10.290605095541402rem + 3.1847133757961785vw,
-		12.5rem
-	);
+	line-height: 1;
 	color: map-get($colors, c-white);
 }
 
@@ -69,11 +65,11 @@ $colors: (
 	);
 	font-weight: 700;
 	line-height: units.rem(28);
-	letter-spacing: 1.125rem;
+	letter-spacing: 0.1875rem;
 	letter-spacing: clamp(
-		1.125rem,
-		0.9697452229299364rem + 0.7643312101910829vw,
-		1.5rem
+		0.1875rem,
+		0.1409235668789809rem + 0.22929936305732482vw,
+		0.3rem
 	);
 	color: map-get($colors, c-white);
 }
@@ -86,6 +82,7 @@ $colors: (
 		1.25rem
 	);
 	font-weight: 400;
+	text-transform: uppercase;
 	line-height: units.rem(28);
 	letter-spacing: 0.225rem;
 	letter-spacing: clamp(
@@ -104,6 +101,7 @@ $colors: (
 		0.9375rem
 	);
 	font-weight: 400;
+	text-transform: uppercase;
 	line-height: units.rem(28);
 	letter-spacing: 0.125rem;
 	letter-spacing: clamp(
@@ -111,6 +109,22 @@ $colors: (
 		0.09912420382165606rem + 0.12738853503184713vw,
 		0.1875rem
 	);
+}
+
+@mixin timezone-txt {
+	font-size: 0.9375rem;
+	font-size: clamp(
+		0.9375rem,
+		0.29060509554140124rem + 3.1847133757961785vw,
+		2.5rem
+	);
+	font-weight: 300;
+	line-height: 2.3;
+	color: map-get($colors, c-white);
+
+	@media screen and (min-width: map-get($viewports, v-desktop)) {
+		line-height: 2.1;
+	}
 }
 
 @mixin button-txt {

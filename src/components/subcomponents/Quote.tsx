@@ -4,7 +4,7 @@ import './Quote.scss';
 
 const Quote = () => {
 	return (
-		<section className='quote wrapper'>
+		<section className='quote quote--expanded wrapper'>
 			<div className='quote__container'>
 				<blockquote className='quote__text'>
 					“The science of operations, as derived from mathematics more

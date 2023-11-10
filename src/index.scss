@@ -14,10 +14,12 @@ body {
 }
 
 .wrapper {
-	padding: 0 units.rem(26);
+	padding-left: units.rem(26);
+	padding-right: units.rem(26);
 
 	@media screen and (min-width: map-get(utils.$viewports, v-tablet)) {
-		padding: 0 units.rem(64);
+		padding-left: units.rem(64);
+	padding-right: units.rem(64);
 	}
 
 	@media screen and (min-width: map-get(utils.$viewports, v-desktop)) {

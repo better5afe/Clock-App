@@ -3,10 +3,10 @@
 
 .main {
 	position: relative;
-	min-height: 100vh;
-	height: fit-content;
+	min-height: units.rem(660);
+	height: 100vh;
 	width: 100vw;
-	padding: units.rem(32) 0;
+	padding: units.rem(32) 0 0;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -43,7 +43,9 @@
 	}
 
 	@media screen and (min-width: map-get(utils.$viewports, v-desktop)) {
-		padding: units.rem(56) 0;
+		height: 100vh;
+		overflow: hidden;
+		padding: units.rem(56) 0 0;
 
 		&--daytime {
 			background-image: url('../assets/images/desktop/bg-image-daytime--desktop.jpg');

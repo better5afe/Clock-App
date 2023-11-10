@@ -1,0 +1,57 @@
+@use '../../assets/scss/utils.scss' as utils;
+@use '../../assets/scss/units.scss' as units;
+
+.details {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding: units.rem(48) 0;
+	transform: scaleY(0);
+	transform-origin: bottom;
+	transition: transform 0.8s;
+
+	&--expanded {
+		transform: scaleY(1);
+	}
+
+	&--daytime {
+		background: map-get(utils.$colors, c-white-shadow);
+		color: map-get(utils.$colors, c-gray);
+	}
+
+	&--nighttime {
+		background: map-get(utils.$colors, c-black-shadow);
+		color: map-get(utils.$colors, c-white);
+	}
+
+	@media screen and (min-width: map-get(utils.$viewports, v-tablet)) {
+		padding: units.rem(119) 0 0;
+
+		&__wrapper {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: units.rem(80);
+		}
+
+		&__left {
+			grid-column: 1/3;
+		}
+
+		&__right {
+			grid-column: 3/-1;
+		}
+	}
+
+	@media screen and (min-width: map-get(utils.$viewports, v-desktop)) {
+		padding: units.rem(74) 0;
+
+		&__left {
+			padding: 0 units.rem(94) 0 0;
+		}
+
+		&__right {
+			padding: 0 0 0 units.rem(94);
+			border-left: 1px solid map-get(utils.$colors, c-gray-border);
+		}
+	}
+}

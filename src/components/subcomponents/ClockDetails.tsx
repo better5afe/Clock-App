@@ -2,45 +2,21 @@ import ClockDetailsCard from './ClockDetailsCard';
 
 import './ClockDetails.scss';
 
-const dummyCards = [
-	{
-		id: 1,
-		className: 'timezone',
-		title: 'current timezone',
-		details: 'Europe/London',
-	},
-	{
-		id: 2,
-		className: 'week-day',
-		title: 'day of the week',
-		details: '5',
-	},
-	{
-		id: 3,
-		className: 'year-day',
-		title: 'day of the year',
-		details: '295',
-	},
-	{
-		id: 4,
-		className: 'week-number',
-		title: 'week number',
-		details: '42',
-	},
-];
+// details--expanded
 
 const ClockDetails = () => {
 	return (
-		<section className='details wrapper'>
-			{dummyCards.map((card, idx) => (
-				<ClockDetailsCard
-					key={idx}
-					id={card.id}
-					className={card.className}
-					title={card.title}
-					details={card.details}
-				/>
-			))}
+		<section className='details details--expanded details--daytime'>
+			<div className='wrapper details__wrapper'>
+				<div className='details__left'>
+					<ClockDetailsCard title='current timezone' details='Europe/London' />
+					<ClockDetailsCard title='Day of the year' details='295' />
+				</div>
+				<div className='details__right'>
+					<ClockDetailsCard title='Day of the week' details='5' />
+					<ClockDetailsCard title='Week number' details='42' />
+				</div>
+			</div>
 		</section>
 	);
 };

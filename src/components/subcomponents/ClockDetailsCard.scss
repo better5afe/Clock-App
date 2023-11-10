@@ -1,0 +1,29 @@
+@use '../../assets/scss/utils.scss' as utils;
+@use '../../assets/scss/units.scss' as units;
+
+.card {
+	@include utils.flexbox(space-between, center, row);
+
+	&__title,
+	&__details {
+		flex-basis: 48%;
+	}
+
+	&__title {
+		@include utils.h-five;
+	}
+
+	&__details {
+		text-align: right;
+		@include utils.h-two;
+	}
+
+	@media screen and (min-width: map-get(utils.$viewports, v-tablet)) {
+		display: block;
+        margin-block-end: units.rem(48);
+
+		&__details {
+			text-align: left;
+		}
+	}
+}

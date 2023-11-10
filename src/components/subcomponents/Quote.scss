@@ -2,7 +2,14 @@
 @use '../../assets/scss/units.scss' as units;
 
 .quote {
+	height: 50%;
 	@include utils.flexbox(flex-start, flex-start, row);
+	transition: opacity 0.8s, transform 0.8s;
+
+	&--expanded {
+		opacity: 0;
+		transform: translateY(-100%);
+	}
 
 	&__container {
 		margin-right: units.rem(3);

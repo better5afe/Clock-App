@@ -2,8 +2,7 @@ export interface ClassNameProps {
 	className: string;
 }
 
-export interface ClockDetailsCardProps extends ClassNameProps {
-	id: number;
+export interface ClockDetailsCardProps {
 	title: string;
 	details: string;
 }
