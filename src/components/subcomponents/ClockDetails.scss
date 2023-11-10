@@ -6,12 +6,12 @@
 	bottom: 0;
 	width: 100%;
 	padding: units.rem(48) 0;
-	transform: scaleY(0);
+	transform: translateY(100%);
 	transform-origin: bottom;
 	transition: transform 0.8s;
 
 	&--expanded {
-		transform: scaleY(1);
+	transform: translateY(0);
 	}
 
 	&--daytime {
