@@ -19,11 +19,13 @@ body {
 
 	@media screen and (min-width: map-get(utils.$viewports, v-tablet)) {
 		padding-left: units.rem(64);
-	padding-right: units.rem(64);
+		padding-right: units.rem(64);
 	}
 
 	@media screen and (min-width: map-get(utils.$viewports, v-desktop)) {
 		max-width: map-get(utils.$viewports, v-desktop);
 		margin: 0 auto;
+		padding-right: 0;
+		padding-left: 0;
 	}
 }
