@@ -10,8 +10,9 @@ $colors: (
 	c-white: #ffff,
 	c-gray: #303030,
 	c-black: #0000,
-	c-white-shadow: rgba(255, 255, 255, 0.75),
+	c-white-shadow: #ffffffbf,
 	c-gray-hover: #999999,
+	c-gray-text: #00000080,
 	c-black-shadow: #000000bf,
 	c-black-overlay: #0000004d,
 );
@@ -129,7 +130,7 @@ $colors: (
 		0.20203025477707007rem + 0.1592356687898089vw,
 		0.3125rem
 	);
-	color: map-get($colors, c-gray);
+	color: map-get($colors, c-gray-text);
 }
 
 @mixin flexbox($justify-content, $align-items, $direction) {

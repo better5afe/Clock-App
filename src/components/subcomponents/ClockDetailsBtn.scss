@@ -1,0 +1,37 @@
+@use '../../assets/scss/utils.scss' as utils;
+@use '../../assets/scss/units.scss' as units;
+
+.details__btn {
+	@include utils.flexbox(space-between, center, row);
+	padding: units.rem(3) units.rem(4) units.rem(3) units.rem(17);
+	background: map-get(utils.$colors, c-white);
+	border-radius: units.rem(28);
+	@include utils.button;
+	@include utils.button-txt;
+
+	&-arrow {
+		@include utils.flexbox(center, center, column);
+		height: units.rem(32);
+		width: units.rem(32);
+		margin: 0 0 0 units.rem(15);
+		background: map-get(utils.$colors, c-gray);
+		border-radius: 50%;
+		transition: background-color 0.3s;
+	}
+
+	&:hover,
+	&:focus {
+		.details__btn-arrow {
+			background: map-get(utils.$colors, c-gray-hover);
+		}
+	}
+
+	@media screen and (min-width: map-get(utils.$viewports, v-tablet)) {
+		padding: units.rem(8) units.rem(8) units.rem(8) units.rem(21);
+
+		&-arrow {
+			height: units.rem(40);
+			width: units.rem(40);
+		}
+	}
+}
