@@ -7,6 +7,8 @@ import './Main.scss';
 // main--nighttime
 
 const Main = () => {
+	
+
 	return (
 		<main className='main main--daytime'>
 			<Quote />

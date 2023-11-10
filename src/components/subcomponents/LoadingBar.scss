@@ -1,0 +1,44 @@
+@use '../../assets/scss/utils.scss' as utils;
+@use '../../assets/scss/units.scss' as units;
+
+.loading-bar {
+	position: relative;
+	height: units.rem(16);
+	width: 60vw;
+	background: map-get(utils.$colors, c-white-shadow);
+	border-radius: units.rem(10);
+	overflow: hidden;
+
+	&::after {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 5%;
+		transform: skewX(-10deg);
+		background: map-get(utils.$colors, c-white);
+		content: '';
+		animation: loading-bar 1s linear infinite;
+	}
+}
+
+@keyframes loading-bar {
+	0% {
+		transform: skewX(-10deg) translateX(-10%);
+		opacity: 1;
+	}
+
+	95% {
+		transform: skewX(-10deg) translateX(70vw);
+		opacity: 1;
+	}
+
+	99% {
+		transform: skewX(-10deg) translateX(70vw);
+		opacity: 0;
+	}
+
+	100% {
+		transform: skewX(-10deg) translateX(-10%);
+		opacity: 0;
+	}
+}

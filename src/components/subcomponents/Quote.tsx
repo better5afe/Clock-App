@@ -1,11 +1,19 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { ClockDetailsCtx } from '../../context/clock-details-ctx';
+import { useQuote } from '../../hooks/useQuote';
 import RefreshIcon from '../../assets/icons/icon-refresh.svg';
+import LoadingBar from './LoadingBar';
 
 import './Quote.scss';
 
 const Quote = () => {
 	const clockCtx = useContext(ClockDetailsCtx);
+
+	const { quote, isLoading, error, fetchQuote } = useQuote();
+
+	useEffect(() => {
+		fetchQuote();
+	}, []);
 
 	return (
 		<section
@@ -14,14 +22,20 @@ const Quote = () => {
 			}`}
 		>
 			<div className='quote__container'>
-				<blockquote className='quote__text'>
-					“The science of operations, as derived from mathematics more
-					especially, is a science of itself, and has its own abstract truth and
-					value.”
-				</blockquote>
-				<p className='quote__author'>Ada Lovelace</p>
+				{isLoading && <LoadingBar />}
+				{!isLoading && error && (
+					<p className='quote__text'>
+						An error occured while loading the resource
+					</p>
+				)}
+				{!isLoading && !error && (
+					<>
+						<blockquote className='quote__text'>{quote.content}</blockquote>
+						<p className='quote__author'>{quote.author}</p>
+					</>
+				)}
 			</div>
-			<button className='quote__btn'>
+			<button className='quote__btn' onClick={() => fetchQuote()}>
 				<img
 					width={16}
 					src={RefreshIcon}

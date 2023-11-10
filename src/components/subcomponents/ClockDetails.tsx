@@ -6,7 +6,7 @@ import './ClockDetails.scss';
 
 const ClockDetails = () => {
 	const clockCtx = useContext(ClockDetailsCtx);
-
+	
 	return (
 		<section
 			className={`details details--daytime ${
