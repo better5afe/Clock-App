@@ -17,8 +17,18 @@ $colors: (
 );
 
 @mixin regular-txt {
-	font-size: units.rem(18);
-	line-height: units.rem(28px);
+	font-size: 0.75rem;
+	font-size: clamp(
+		0.75rem,
+		0.5947452229299364rem + 0.7643312101910829vw,
+		1.125rem
+	);
+	line-height: 1.375rem;
+	line-height: clamp(
+		1.375rem,
+		1.2197452229299364rem + 0.7643312101910829vw,
+		1.75rem
+	);
 	color: map-get($colors, c-white);
 }
 
@@ -127,4 +137,10 @@ $colors: (
 	justify-content: $justify-content;
 	align-items: $align-items;
 	flex-direction: $direction;
+}
+
+@mixin button {
+	outline: none;
+	border: 1px solid transparent;
+	cursor: pointer;
 }

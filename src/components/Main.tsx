@@ -1,6 +1,5 @@
 import Quote from './subcomponents/Quote';
 import Clock from './subcomponents/Clock';
-import ClockDetails from './subcomponents/ClockDetails';
 
 import './Main.scss';
 
@@ -11,7 +10,6 @@ const Main = () => {
 		<main className='main main--daytime'>
 			<Quote />
 			<Clock />
-			<ClockDetails />
 			<div className='main__shadow'></div>
 		</main>
 	);

@@ -15,6 +15,7 @@ const Quote = () => {
 			</div>
 			<button className='quote__btn'>
 				<img
+					width={16}
 					src={RefreshIcon}
 					alt=''
 					aria-hidden={true}

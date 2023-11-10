@@ -1,0 +1,46 @@
+@use '../../assets/scss/utils.scss' as utils;
+@use '../../assets/scss/units.scss' as units;
+
+.quote {
+	@include utils.flexbox(flex-start, flex-start, row);
+
+	&__container {
+		margin-right: units.rem(3);
+	}
+
+	&__text,
+	&__author {
+		@include utils.regular-txt;
+	}
+
+	&__text {
+		margin-block-end: units.rem(8);
+	}
+
+	&__author {
+		font-weight: 700;
+	}
+
+	&__btn {
+		padding: units.rem(2);
+		background: transparent;
+		@include utils.button;
+		border-radius: units.rem(5);
+		transition: border-color 0.3s;
+
+		&:focus {
+			border-color: map-get(utils.$colors, c-gray-hover);
+		}
+	}
+
+	@media screen and (min-width: map-get(utils.$viewports, v-tablet)) {
+		&__container {
+			max-width: units.rem(540);
+			margin-right: units.rem(16);
+		}
+
+		&__text {
+			margin-block-end: units.rem(13);
+		}
+	}
+}

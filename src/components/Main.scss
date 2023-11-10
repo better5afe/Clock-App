@@ -1,9 +1,12 @@
 @use '../assets/scss/utils.scss' as utils;
+@use '../assets/scss/units.scss' as units;
 
 .main {
 	position: relative;
 	min-height: 100vh;
+	height: fit-content;
 	width: 100vw;
+	padding: units.rem(32) 0;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -28,6 +31,8 @@
 	}
 
 	@media screen and (min-width: map-get(utils.$viewports, v-tablet)) {
+		padding: units.rem(80) 0;
+
 		&--daytime {
 			background-image: url('../assets/images/tablet/bg-image-daytime--tablet.jpg');
 		}
@@ -38,6 +43,8 @@
 	}
 
 	@media screen and (min-width: map-get(utils.$viewports, v-desktop)) {
+		padding: units.rem(56) 0;
+
 		&--daytime {
 			background-image: url('../assets/images/desktop/bg-image-daytime--desktop.jpg');
 		}
