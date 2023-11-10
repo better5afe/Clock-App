@@ -30,7 +30,6 @@
 		&__wrapper {
 			display: grid;
 			grid-template-columns: repeat(4, 1fr);
-			gap: units.rem(80);
 		}
 
 		&__left {
@@ -43,7 +42,8 @@
 	}
 
 	@media screen and (min-width: map-get(utils.$viewports, v-desktop)) {
-		padding: units.rem(74) 0;
+		height: 50%;
+		padding: units.rem(74) 0 0;
 
 		&__left {
 			padding: 0 units.rem(94) 0 0;

@@ -25,6 +25,9 @@ body {
 	@media screen and (min-width: map-get(utils.$viewports, v-desktop)) {
 		max-width: map-get(utils.$viewports, v-desktop);
 		margin: 0 auto;
+	}
+
+	@media screen and (min-width: units.rem(1210)) {
 		padding-right: 0;
 		padding-left: 0;
 	}

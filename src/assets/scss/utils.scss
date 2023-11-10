@@ -39,7 +39,7 @@ $colors: (
 	font-size: clamp(
 		6.25rem,
 		3.662420382165605rem + 12.738853503184714vw,
-		12.5rem
+		8.5rem
 	);
 	font-weight: 700;
 	line-height: 1;
@@ -122,8 +122,12 @@ $colors: (
 	line-height: 2.3;
 	color: map-get($colors, c-white);
 
+	@media screen and (min-width: map-get($viewports, v-tablet)) {
+		line-height: 1.9;
+	}
+
 	@media screen and (min-width: map-get($viewports, v-desktop)) {
-		line-height: 2.1;
+		line-height: 1.65;
 	}
 }
 
