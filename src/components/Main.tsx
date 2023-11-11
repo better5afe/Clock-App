@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../store/typed-hooks';
-import { fetchTime } from '../store/clock-slice';
+import { fetchTime, fetchLocation } from '../store/clock-slice';
 import Quote from './subcomponents/Quote';
 import Clock from './subcomponents/Clock';
 import ClockDetails from './subcomponents/ClockDetails';
@@ -13,6 +13,7 @@ const Main = () => {
 
 	useEffect(() => {
 		dispatch(fetchTime());
+		dispatch(fetchLocation());
 	}, []);
 
 	return (
