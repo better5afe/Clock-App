@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Clock-App/static/css/main.07309d8c.css",
-    "main.js": "/Clock-App/static/js/main.6bfc42d3.js",
+    "main.css": "/Clock-App/static/css/main.995b6673.css",
+    "main.js": "/Clock-App/static/js/main.d1d20901.js",
     "static/media/bg-image-nighttime--desktop.jpg": "/Clock-App/static/media/bg-image-nighttime--desktop.aa5161f57be5fd66b6a2.jpg",
     "static/media/bg-image-nighttime--tablet.jpg": "/Clock-App/static/media/bg-image-nighttime--tablet.3c0b0370c31f5d57ff73.jpg",
     "static/media/bg-image-daytime--desktop.jpg": "/Clock-App/static/media/bg-image-daytime--desktop.22955f116d799eadf917.jpg",
@@ -11,12 +11,13 @@
     "static/media/icon-sun.svg": "/Clock-App/static/media/icon-sun.cb7a2aac3be7bf88b4cf17bd97d62fd2.svg",
     "index.html": "/Clock-App/index.html",
     "static/media/icon-refresh.svg": "/Clock-App/static/media/icon-refresh.dd4042c8a2d8493ec9ddb2b52692ad11.svg",
+    "static/media/icon-moon.svg": "/Clock-App/static/media/icon-moon.83b9f0dbe53bfaab2e1c6dc344545e9c.svg",
     "static/media/icon-arrow.svg": "/Clock-App/static/media/icon-arrow.4d330a30a2190ce71512b306095fbf41.svg",
-    "main.07309d8c.css.map": "/Clock-App/static/css/main.07309d8c.css.map",
-    "main.6bfc42d3.js.map": "/Clock-App/static/js/main.6bfc42d3.js.map"
+    "main.995b6673.css.map": "/Clock-App/static/css/main.995b6673.css.map",
+    "main.d1d20901.js.map": "/Clock-App/static/js/main.d1d20901.js.map"
   },
   "entrypoints": [
-    "static/css/main.07309d8c.css",
-    "static/js/main.6bfc42d3.js"
+    "static/css/main.995b6673.css",
+    "static/js/main.d1d20901.js"
   ]
 }
