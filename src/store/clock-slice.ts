@@ -6,6 +6,7 @@ const initialState = {
 	country: '',
 	city: '',
 	time: '',
+	timeOfDay: '',
 	timezone: '',
 	abbreviation: '',
 	dayOfWeek: 0,
@@ -25,7 +26,8 @@ const clockSlice = createSlice({
 			state.isError = action.payload.isError;
 		},
 		setHour: (state, action) => {
-			state.time = action.payload;
+			state.time = action.payload.time;
+			state.timeOfDay = action.payload.timeOfDay
 		},
 		getTimeData: (state, action: PayloadAction<TimeState>) => {
 			state.timezone = action.payload.timezone;

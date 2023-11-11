@@ -24,6 +24,7 @@ const Clock: React.FC<ClockProps> = ({ abbreviation }) => {
 		const date = new Date();
 		let hours;
 		let minutes;
+		let timeOfDay;
 
 		date.getHours() < 10
 			? (hours = `0${date.getHours()}`)
@@ -33,7 +34,20 @@ const Clock: React.FC<ClockProps> = ({ abbreviation }) => {
 			? (minutes = `0${date.getMinutes()}`)
 			: (minutes = date.getMinutes());
 
-		dispatch(setHour(hours));
+		if (+hours >= 5 && +hours < 18) {
+			timeOfDay = 'daytime';
+			setIcon(SunIcon);
+		} else {
+			timeOfDay = 'nighttime';
+			setIcon(MoonIcon);
+		}
+
+		dispatch(
+			setHour({
+				time: hours,
+				timeOfDay: timeOfDay,
+			})
+		);
 
 		if (+hours >= 5 && +hours < 12) {
 			setGreeting('morning');
@@ -46,10 +60,8 @@ const Clock: React.FC<ClockProps> = ({ abbreviation }) => {
 		if (+hours > 12) {
 			hours = +hours - 12;
 			setTimeAbbr('PM');
-			setIcon(MoonIcon);
 		} else {
 			setTimeAbbr('AM');
-			setIcon(SunIcon);
 		}
 
 		setTime(`${hours}:${minutes}`);

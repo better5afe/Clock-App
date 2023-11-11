@@ -5,7 +5,6 @@ import Clock from './subcomponents/Clock';
 import ClockDetails from './subcomponents/ClockDetails';
 import './Main.scss';
 
-// main--nighttime
 
 const Main = () => {
 	const selectedState = useAppSelector((state) => state);
@@ -13,7 +12,7 @@ const Main = () => {
 	const dispatch = useAppDispatch();
 
 	return (
-		<main className='main main--daytime'>
+		<main className={`main main--${selectedState.timeOfDay === 'day' ? 'daytime' : 'nighttime'}`}>
 			<Quote />
 			<Clock abbreviation={selectedState.abbreviation} />
 			<ClockDetails
@@ -21,6 +20,7 @@ const Main = () => {
 				dayOfYear={selectedState.dayOfYear}
 				dayOfWeek={selectedState.dayOfWeek}
 				weekNum={selectedState.weekNum}
+				timeOfDay = {selectedState.timeOfDay}
 			/>
 			<div className='main__shadow'></div>
 		</main>

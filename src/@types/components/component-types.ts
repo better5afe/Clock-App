@@ -30,12 +30,9 @@ interface TimeDetails {
 	weekNum: number;
 }
 
-interface ClockTime {
-	time: string;
+interface TimeObj extends TimeDetails {
 	abbreviation: string;
 }
-
-interface TimeObj extends ClockTime, TimeDetails {}
 
 export interface TimeState extends TimeObj, RequestState {}
 
@@ -44,7 +41,9 @@ export interface ClockDetailsCardProps {
 	details: string | number;
 }
 
-export interface ClockDetailsProps extends TimeDetails {}
+export interface ClockDetailsProps extends TimeDetails {
+	timeOfDay: string;
+}
 
 export interface ClockProps {
 	abbreviation: string;

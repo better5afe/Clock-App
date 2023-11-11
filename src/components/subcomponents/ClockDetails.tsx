@@ -10,14 +10,15 @@ const ClockDetails: React.FC<ClockDetailsProps> = ({
 	dayOfWeek,
 	dayOfYear,
 	weekNum,
+	timeOfDay,
 }) => {
 	const clockCtx = useContext(ClockDetailsCtx);
 
 	return (
 		<section
-			className={`details details--daytime ${
-				clockCtx.isExpanded ? 'details--expanded' : ''
-			}`}
+			className={`details details--${
+				timeOfDay === 'day' ? 'daytime' : 'nighttime'
+			} ${clockCtx.isExpanded ? 'details--expanded' : ''}`}
 		>
 			<div className='wrapper details__wrapper'>
 				<div className='details__left'>
