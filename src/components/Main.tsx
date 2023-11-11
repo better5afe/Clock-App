@@ -23,7 +23,11 @@ const Main = () => {
 			}`}
 		>
 			<Quote />
-			<Clock abbreviation={selectedState.abbreviation} />
+			<Clock
+				abbreviation={selectedState.abbreviation}
+				city={selectedState.city}
+				country={selectedState.country}
+			/>
 			<ClockDetails
 				timezone={selectedState.timezone}
 				dayOfYear={selectedState.dayOfYear}

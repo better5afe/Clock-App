@@ -16,7 +16,6 @@ export interface LocationState {
 	city: string;
 }
 
-
 interface TimeDetails {
 	timezone: string;
 	dayOfWeek: number;
@@ -37,6 +36,6 @@ export interface ClockDetailsProps extends TimeDetails {
 	timeOfDay: string;
 }
 
-export interface ClockProps {
+export interface ClockProps extends LocationState {
 	abbreviation: string;
 }

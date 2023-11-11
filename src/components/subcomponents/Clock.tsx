@@ -10,7 +10,7 @@ import LoadingBar from './LoadingBar';
 
 import './Clock.scss';
 
-const Clock: React.FC<ClockProps> = ({ abbreviation }) => {
+const Clock: React.FC<ClockProps> = ({ abbreviation, city, country }) => {
 	const [time, setTime] = useState('');
 	const [timeAbbr, setTimeAbbr] = useState('');
 	const [greeting, setGreeting] = useState('');
@@ -108,7 +108,7 @@ const Clock: React.FC<ClockProps> = ({ abbreviation }) => {
 				{timeAbbr ? (
 					<>
 						<h3 className='clock__location'>
-							<span className='clock__timeAbbr'>{timeAbbr}</span> in London, UK
+							<span className='clock__timeAbbr'>{timeAbbr}</span> in {city}, {country}
 						</h3>
 						<ClockDetailsBtn />
 					</>
