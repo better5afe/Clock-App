@@ -24,11 +24,10 @@ const clockSlice = createSlice({
 			state.isLoading = action.payload.isLoading;
 			state.isError = action.payload.isError;
 		},
-		getHour: (state, action: PayloadAction<{ time: string }>) => {
-			state.time = action.payload.time;
+		setHour: (state, action) => {
+			state.time = action.payload;
 		},
 		getTimeData: (state, action: PayloadAction<TimeState>) => {
-			state.time = action.payload.time;
 			state.timezone = action.payload.timezone;
 			state.abbreviation = action.payload.abbreviation;
 			state.dayOfWeek = action.payload.dayOfWeek;
@@ -40,7 +39,7 @@ const clockSlice = createSlice({
 	},
 });
 
-export const { getLocationData, getTimeData, getHour } = clockSlice.actions;
+export const { getLocationData, getTimeData, setHour } = clockSlice.actions;
 export default clockSlice.reducer;
 
 // export const fetchLocation = () => {
@@ -110,86 +109,53 @@ export default clockSlice.reducer;
 // 	};
 // };
 
-export const fetchHour = () => {
-	return async (
-		dispatch: ThunkDispatch<{ time: string }, unknown, AnyAction>
-	) => {
-		try {
-			const res = await fetch(`http://worldtimeapi.org/api/ip`);
+// export const fetchTime = () => {
+// 	return async (dispatch: ThunkDispatch<TimeState, unknown, AnyAction>) => {
+// 		try {
+// 			const res = await fetch(`http://worldtimeapi.org/api/ip`);
 
-			if (res.ok) {
-				const timeData = await res.json();
+// 			if (res.ok) {
+// 				const timeData = await res.json();
 
-				dispatch(
-					getHour({
-						time: timeData.datetime,
-					})
-				);
-			} else {
-				dispatch(
-					getHour({
-						time: '',
-					})
-				);
-			}
-		} catch (err) {
-			dispatch(
-				getHour({
-					time: '',
-				})
-			);
-		}
-	};
-};
-
-export const fetchTime = () => {
-	return async (dispatch: ThunkDispatch<TimeState, unknown, AnyAction>) => {
-		try {
-			const res = await fetch(`http://worldtimeapi.org/api/ip`);
-
-			if (res.ok) {
-				const timeData = await res.json();
-
-				dispatch(
-					getTimeData({
-						time: timeData.datetime,
-						timezone: timeData.timezone,
-						abbreviation: timeData.abbreviation,
-						dayOfWeek: timeData.day_of_week,
-						dayOfYear: timeData.day_of_year,
-						weekNum: timeData.week_number,
-						isLoading: false,
-						isError: false,
-					})
-				);
-			} else {
-				dispatch(
-					getTimeData({
-						time: '',
-						timezone: '',
-						abbreviation: '',
-						dayOfWeek: 0,
-						dayOfYear: 0,
-						weekNum: 0,
-						isLoading: false,
-						isError: true,
-					})
-				);
-			}
-		} catch (err) {
-			dispatch(
-				getTimeData({
-					time: '',
-					timezone: '',
-					abbreviation: '',
-					dayOfWeek: 0,
-					dayOfYear: 0,
-					weekNum: 0,
-					isLoading: false,
-					isError: true,
-				})
-			);
-			console.log(err);
-		}
-	};
-};
+// 				dispatch(
+// 					getTimeData({
+// 						time: timeData.datetime,
+// 						timezone: timeData.timezone,
+// 						abbreviation: timeData.abbreviation,
+// 						dayOfWeek: timeData.day_of_week,
+// 						dayOfYear: timeData.day_of_year,
+// 						weekNum: timeData.week_number,
+// 						isLoading: false,
+// 						isError: false,
+// 					})
+// 				);
+// 			} else {
+// 				dispatch(
+// 					getTimeData({
+// 						time: '',
+// 						timezone: '',
+// 						abbreviation: '',
+// 						dayOfWeek: 0,
+// 						dayOfYear: 0,
+// 						weekNum: 0,
+// 						isLoading: false,
+// 						isError: true,
+// 					})
+// 				);
+// 			}
+// 		} catch (err) {
+// 			dispatch(
+// 				getTimeData({
+// 					time: '',
+// 					timezone: '',
+// 					abbreviation: '',
+// 					dayOfWeek: 0,
+// 					dayOfYear: 0,
+// 					weekNum: 0,
+// 					isLoading: false,
+// 					isError: true,
+// 				})
+// 			);
+// 		}
+// 	};
+// };

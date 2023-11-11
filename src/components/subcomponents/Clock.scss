@@ -47,6 +47,10 @@
 		@include utils.h-three;
 	}
 
+	&__timeAbbr {
+		font-weight: 300;
+	}
+
 	@media screen and (min-width: map-get(utils.$viewports, v-tablet)) {
 		&__greeting {
 			&--current {

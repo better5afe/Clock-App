@@ -46,4 +46,6 @@ export interface ClockDetailsCardProps {
 
 export interface ClockDetailsProps extends TimeDetails {}
 
-export interface ClockProps extends ClockTime {}
+export interface ClockProps {
+	abbreviation: string;
+}
