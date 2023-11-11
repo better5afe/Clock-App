@@ -114,7 +114,7 @@ export default clockSlice.reducer;
 export const fetchTime = () => {
 	return async (dispatch: ThunkDispatch<TimeState, unknown, AnyAction>) => {
 		try {
-			const res = await fetch(`http://worldtimeapi.org/api/ip`);
+			const res = await fetch(`https://worldtimeapi.org/api/ip`);
 
 			if (res.ok) {
 				const timeData = await res.json();
