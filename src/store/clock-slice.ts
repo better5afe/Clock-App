@@ -12,8 +12,6 @@ const initialState = {
 	dayOfWeek: 0,
 	dayOfYear: 0,
 	weekNum: 0,
-	isLoading: false,
-	isError: false,
 };
 const clockSlice = createSlice({
 	name: 'clock',
@@ -22,8 +20,7 @@ const clockSlice = createSlice({
 		getLocationData: (state, action: PayloadAction<LocationState>) => {
 			state.country = action.payload.country;
 			state.city = action.payload.city;
-			state.isLoading = action.payload.isLoading;
-			state.isError = action.payload.isError;
+
 		},
 		setHour: (state, action) => {
 			state.time = action.payload.time;
@@ -35,8 +32,6 @@ const clockSlice = createSlice({
 			state.dayOfWeek = action.payload.dayOfWeek;
 			state.dayOfYear = action.payload.dayOfYear;
 			state.weekNum = action.payload.weekNum;
-			state.isLoading = action.payload.isLoading;
-			state.isError = action.payload.isError;
 		},
 	},
 });
@@ -44,72 +39,62 @@ const clockSlice = createSlice({
 export const { getLocationData, getTimeData, setHour } = clockSlice.actions;
 export default clockSlice.reducer;
 
-// export const fetchLocation = () => {
-// 	return async (dispatch: ThunkDispatch<LocationState, unknown, AnyAction>) => {
-// 		dispatch(
-// 			getLocationData({
-// 				country: '',
-// 				city: '',
-// 				isLoading: true,
-// 				isError: false,
-// 			})
-// 		);
+export const fetchLocation = () => {
+	return async (dispatch: ThunkDispatch<LocationState, unknown, AnyAction>) => {
+		dispatch(
+			getLocationData({
+				country: '',
+				city: '',
+			})
+		);
 
-// 		try {
-// 			const res = await fetch('https://api.ipify.org?format=json');
+		try {
+			const res = await fetch('https://api.ipify.org?format=json');
 
-// 			if (res.ok) {
-// 				const data = await res.json();
-// 				const userIP = data.ip;
+			if (res.ok) {
+				const data = await res.json();
+				const userIP = data.ip;
 
-// 				try {
-// 					const res = await fetch(
-// 						`https://api.ipbase.com/v2/info?apikey=${process.env.REACT_APP_API_KEY}&ip=${userIP}`
-// 					);
+				try {
+					const res = await fetch(
+						`https://api.ipbase.com/v2/info?apikey=${process.env.REACT_APP_API_KEY}&ip=${userIP}`
+					);
 
-// 					if (res.ok) {
-// 						const locationData = await res.json();
-// 						dispatch(
-// 							getLocationData({
-// 								country: locationData.data.location.country.name,
-// 								city: locationData.data.location.city.name,
-// 								isLoading: false,
-// 								isError: false,
-// 							})
-// 						);
-// 					} else {
-// 						dispatch(
-// 							getLocationData({
-// 								country: '',
-// 								city: '',
-// 								isLoading: false,
-// 								isError: true,
-// 							})
-// 						);
-// 					}
-// 				} catch (err) {
-// 					dispatch(
-// 						getLocationData({
-// 							country: '',
-// 							city: '',
-// 							isLoading: true,
-// 							isError: false,
-// 						})
-// 					);
-// 				}
-// 			}
-// 		} catch (err) {
-// 			dispatch(
-// 				getLocationData({
-// 					country: '',
-// 					city: '',
-// 					isLoading: true,
-// 					isError: false,
-// 				})
-// 			);
-// 		}
-// 	};
-// };
+					if (res.ok) {
+						const locationData = await res.json();
+						dispatch(
+							getLocationData({
+								country: locationData.data.location.country.name,
+								city: locationData.data.location.city.name,
+							})
+						);
+					} else {
+						dispatch(
+							getLocationData({
+								country: '',
+								city: '',
+							})
+						);
+					}
+				} catch (err) {
+					dispatch(
+						getLocationData({
+							country: '',
+							city: '',
+						})
+					);
+				}
+			}
+		} catch (err) {
+			dispatch(
+				getLocationData({
+					country: '',
+					city: '',
+				})
+			);
+		}
+	};
+};
 
 export const fetchTime = () => {
 	return async (dispatch: ThunkDispatch<TimeState, unknown, AnyAction>) => {
@@ -126,8 +111,6 @@ export const fetchTime = () => {
 						dayOfWeek: timeData.day_of_week,
 						dayOfYear: timeData.day_of_year,
 						weekNum: timeData.week_number,
-						isLoading: false,
-						isError: false,
 					})
 				);
 			} else {
@@ -138,8 +121,6 @@ export const fetchTime = () => {
 						dayOfWeek: 0,
 						dayOfYear: 0,
 						weekNum: 0,
-						isLoading: false,
-						isError: true,
 					})
 				);
 			}
@@ -151,8 +132,6 @@ export const fetchTime = () => {
 					dayOfWeek: 0,
 					dayOfYear: 0,
 					weekNum: 0,
-					isLoading: false,
-					isError: true,
 				})
 			);
 		}

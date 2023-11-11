@@ -11,17 +11,11 @@ export interface ClassNameProps {
 	className: string;
 }
 
-interface RequestState {
-	isLoading: boolean;
-	isError: boolean;
-}
-
-interface LocationObj {
+export interface LocationState {
 	country: string;
 	city: string;
 }
 
-export interface LocationState extends LocationObj, RequestState {}
 
 interface TimeDetails {
 	timezone: string;
@@ -30,11 +24,9 @@ interface TimeDetails {
 	weekNum: number;
 }
 
-interface TimeObj extends TimeDetails {
+export interface TimeState extends TimeDetails {
 	abbreviation: string;
 }
-
-export interface TimeState extends TimeObj, RequestState {}
 
 export interface ClockDetailsCardProps {
 	title: string;
