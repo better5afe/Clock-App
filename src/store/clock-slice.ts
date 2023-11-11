@@ -111,53 +111,50 @@ export default clockSlice.reducer;
 // 	};
 // };
 
-// export const fetchTime = () => {
-// 	return async (dispatch: ThunkDispatch<TimeState, unknown, AnyAction>) => {
-// 		try {
-// 			const res = await fetch(`http://worldtimeapi.org/api/ip`);
+export const fetchTime = () => {
+	return async (dispatch: ThunkDispatch<TimeState, unknown, AnyAction>) => {
+		try {
+			const res = await fetch(`http://worldtimeapi.org/api/ip`);
 
-// 			if (res.ok) {
-// 				const timeData = await res.json();
+			if (res.ok) {
+				const timeData = await res.json();
 
-// 				dispatch(
-// 					getTimeData({
-// 						time: timeData.datetime,
-// 						timezone: timeData.timezone,
-// 						abbreviation: timeData.abbreviation,
-// 						dayOfWeek: timeData.day_of_week,
-// 						dayOfYear: timeData.day_of_year,
-// 						weekNum: timeData.week_number,
-// 						isLoading: false,
-// 						isError: false,
-// 					})
-// 				);
-// 			} else {
-// 				dispatch(
-// 					getTimeData({
-// 						time: '',
-// 						timezone: '',
-// 						abbreviation: '',
-// 						dayOfWeek: 0,
-// 						dayOfYear: 0,
-// 						weekNum: 0,
-// 						isLoading: false,
-// 						isError: true,
-// 					})
-// 				);
-// 			}
-// 		} catch (err) {
-// 			dispatch(
-// 				getTimeData({
-// 					time: '',
-// 					timezone: '',
-// 					abbreviation: '',
-// 					dayOfWeek: 0,
-// 					dayOfYear: 0,
-// 					weekNum: 0,
-// 					isLoading: false,
-// 					isError: true,
-// 				})
-// 			);
-// 		}
-// 	};
-// };
+				dispatch(
+					getTimeData({
+						timezone: timeData.timezone,
+						abbreviation: timeData.abbreviation,
+						dayOfWeek: timeData.day_of_week,
+						dayOfYear: timeData.day_of_year,
+						weekNum: timeData.week_number,
+						isLoading: false,
+						isError: false,
+					})
+				);
+			} else {
+				dispatch(
+					getTimeData({
+						timezone: '',
+						abbreviation: '',
+						dayOfWeek: 0,
+						dayOfYear: 0,
+						weekNum: 0,
+						isLoading: false,
+						isError: true,
+					})
+				);
+			}
+		} catch (err) {
+			dispatch(
+				getTimeData({
+					timezone: '',
+					abbreviation: '',
+					dayOfWeek: 0,
+					dayOfYear: 0,
+					weekNum: 0,
+					isLoading: false,
+					isError: true,
+				})
+			);
+		}
+	};
+};
